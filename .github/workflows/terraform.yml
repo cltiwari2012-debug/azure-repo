@@ -43,5 +43,9 @@ jobs:
       - name: Terraform Init
         run: terraform init
 #      - name: Terraform Apply
+<<<<<<< HEAD
 #       run: terraform apply -auto-approve
+=======
+#        run: terraform apply -auto-approve
+>>>>>>> 3df1543d5c300c598a7f418843af603a1d970589
 
