@@ -34,7 +34,8 @@ jobs:
   terraform-apply:
     needs: terraform-plan
     runs-on: ubuntu-latest
-    if: github.event.pull_request.review.state == 'approved'
+#    if: github.event.pull_request.review.state == 'approved'
+    environment: Production
     steps:
       - name: Checkout
         uses: actions/checkout@v3
