@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - top
+      - main
 
 jobs:
   terraform-plan:
@@ -27,7 +28,7 @@ jobs:
         run: terraform plan
 
   terraform-apply:
-    if: github.event.pull_request.merged == true && github.ref == 'refs/heads/master'
+    if: github.event.pull_request.merged == true && github.ref == 'refs/heads/top'
     runs-on: ubuntu-latest
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
