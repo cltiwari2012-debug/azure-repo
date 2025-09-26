@@ -5,3 +5,8 @@ variable "subnet_name" { default = "Test_subnet" }
 variable "vm_name" { default = "testvm" }
 variable "admin_username" { default = "Test" }
 variable "admin_password" { default = "Gawa850300" }
+##
+##
+##
+##
+##

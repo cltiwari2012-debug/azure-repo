@@ -2,7 +2,8 @@ name: Terraform CI
 
 on:
   pull_request:
-    branches: [ master ]
+    branches:
+      - top
 
 jobs:
   terraform-plan:
