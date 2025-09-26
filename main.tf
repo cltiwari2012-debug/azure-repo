@@ -17,6 +17,14 @@ resource "azurerm_subnet" "main" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
+resource "azurerm_public_ip" "main" {
+  name                = "${var.vm_name}-public-ip"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+  allocation_method   = "Dynamic"
+}
+
+
 resource "azurerm_network_interface" "main" {
   name                = "${var.vm_name}-nic"
   location            = var.location
@@ -26,6 +34,7 @@ resource "azurerm_network_interface" "main" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.main.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.main.id
   }
 }
 
@@ -42,10 +51,9 @@ resource "azurerm_windows_virtual_machine" "main" {
     storage_account_type = "Standard_LRS"
   }
   source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2019-Datacenter"
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "18.04-LTS"
     version   = "latest"
   }
 }
-##
