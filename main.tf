@@ -38,7 +38,7 @@ resource "azurerm_network_interface" "main" {
   }
 }
 
-resource "azurer_linux_virtual_machine" "main" {
+resource "azurerm_linux_virtual_machine" "main" {
   name                = var.vm_name
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
