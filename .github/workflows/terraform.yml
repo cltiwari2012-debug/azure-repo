@@ -28,7 +28,7 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -destory
 
   terraform-apply:
     if: github.ref == 'refs/heads/top' && github.event_name == 'push'
@@ -48,5 +48,5 @@ jobs:
       - name: Terraform Init
         run: terraform init
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform destory
 
