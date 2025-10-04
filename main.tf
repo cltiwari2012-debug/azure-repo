@@ -44,7 +44,10 @@ resource "azurerm_linux_virtual_machine" "main" {
   location            = var.location
   size                = "Standard_B1s"
   admin_username      = var.admin_username
-  admin_ssh_key      = var.admin_password
+  admin_ssh_key    {
+    username = var.admin_username
+    public_key = var.admin_password
+    }
   network_interface_ids = [azurerm_network_interface.main.id]
   os_disk {
     caching              = "ReadWrite"
